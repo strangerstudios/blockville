@@ -22,6 +22,7 @@
 		}
 	],
 	"settings": {
+
 		"color": {
 			"palette": [
 				{
@@ -58,6 +59,21 @@
 					"slug": "quinary",
 					"color": "#4fb3bf",
 					"name": "Quinary"
+				},
+				{
+					"slug": "senary",
+					"color": "#AAD9D9",
+					"name": "Senary"
+				},
+				{
+					"slug": "septenary",
+					"color": "#8080D7",
+					"name": "Septenary"
+				},
+				{
+					"slug": "octonary",
+					"color": "#010922",
+					"name": "Octonary"
 				}
 			],
 			"gradients": [
@@ -73,6 +89,7 @@
 			"wideSize": "min(90dvw, 1280px)"
 		},
 		"spacing": {
+			"margin": true,
 			"spacingScale": {
 			"steps": 7
 			},
@@ -208,6 +225,40 @@
 							"fontStretch": "normal",
 							"src": [
 								"file:./assets/fonts/poppins/poppins-black.woff2"
+							]
+						}
+					]
+				},
+				{
+					"fontFamily": "\"Outfit\", sans-serif",
+					"name": "Outfit",
+					"slug": "outfit",
+					"fontFace": [
+						{
+							"fontFamily": "Outfit",
+							"fontWeight": "200",
+							"fontStyle": "normal",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/outfit/Outfit-ExtraLight.ttf"
+							]
+						},
+						{
+							"fontFamily": "Outfit",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/outfit/Outfit-Bold.ttf"
+							]
+						},
+						{
+							"fontFamily": "Outfit",
+							"fontWeight": "700",
+							"fontStyle": "normal",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/outfit/Outfit-regular.ttf"
 							]
 						}
 					]
