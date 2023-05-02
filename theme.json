@@ -213,21 +213,21 @@
               "fontWeight": "200",
               "fontStyle": "normal",
               "fontStretch": "normal",
-              "src": ["file:./assets/fonts/outfit/Outfit-ExtraLight.ttf"]
+              "src": ["file:./assets/fonts/outfit/outfit-extra-light.woff2"]
             },
             {
               "fontFamily": "Outfit",
               "fontWeight": "400",
               "fontStyle": "normal",
               "fontStretch": "normal",
-              "src": ["file:./assets/fonts/outfit/Outfit-Bold.ttf"]
+              "src": ["file:./assets/fonts/outfit/outfit-regular.woff2"]
             },
             {
               "fontFamily": "Outfit",
               "fontWeight": "700",
               "fontStyle": "normal",
               "fontStretch": "normal",
-              "src": ["file:./assets/fonts/outfit/Outfit-regular.ttf"]
+              "src": ["file:./assets/fonts/outfit/outfit-bold.woff2"]
             }
           ]
         }
@@ -353,7 +353,7 @@
     "elements": {
       "button": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--poppins)",
+          "fontFamily": "var(--wp--preset--font-family--outfit)",
           "fontSize": "var(--wp--preset--font-size--18)",
           "fontWeight": "700",
           "lineHeight": "1"
@@ -400,7 +400,7 @@
           }
         },
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--poppins)",
+          "fontFamily": "var(--wp--preset--font-family--outfit)",
           "fontSize": "var(--wp--preset--font-size--16)",
           "fontWeight": "400"
         }
@@ -416,7 +416,7 @@
           }
         },
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--poppins)",
+          "fontFamily": "var(--wp--preset--font-family--outfit)",
           "fontWeight": "700",
           "lineHeight": "1.3"
         }
@@ -530,7 +530,7 @@
           }
         },
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--poppins)",
+          "fontFamily": "var(--wp--preset--font-family--outfit)",
           "fontSize": "var(--wp--preset--font-size--36)",
           "fontWeight": "700"
         }
