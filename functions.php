@@ -66,20 +66,33 @@ function blockville_register_block_patterns() {
 add_action( 'init', 'blockville_register_block_patterns' );
 
 
+//making a class so I dont have to repeat initializing new blocks
+class JSXBlock {
+	function __construct($name, $renderCallback = null) {
+		$this->name = $name; 
+		//replace the name of the specfic block to whatever value was passed into class
+		$this->renderCallback = $renderCallback;
 
+		add_action('init', [$this, 'onInit']);
+	}
+	//pass block attr and  nested content into the function
+	function ourRenderCallback($attributes, $content) {
+		ob_start();
+		require get_theme_file_path("/our-blocks/{$this->name}.php");
+		return ob_get_clean();
+	}
 
+	function onInit() {
+		$ourArgs = array('editor_script' => $this->name);
+		if ($this->renderCallback) {
+			$ourArgs['render_callback'] = [$this, 'ourRenderCallback'];
+		}
 
-function perfectPlanBlock() {
-	wp_register_script('perfectPlanScript', get_stylesheet_directory_uri() . '/build/perfectplan.js', array(
-		'wp-blocks', 'wp-editor'
-	));
-
-	register_block_type('ourblocktheme/perfectplan', array(
-		'editor_script' => 'perfectPlanScript'
-	));
+		wp_register_script($this->name, get_stylesheet_directory_uri() . "/build/{$this->name}.js", array(
+			'wp-blocks', 'wp-editor'
+		));
+		register_block_type("ourblocktheme/{$this->name}", $ourArgs);
+	}
 }
 
-add_action('init', 'perfectPlanBlock');
-
-
-
+new JSXBlock('perfectplan', true); 

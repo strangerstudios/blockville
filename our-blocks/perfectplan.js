@@ -14,16 +14,12 @@ wp.blocks.registerBlockType("ourblocktheme/perfectplan", {
 
 function editComponent() {
   return (
-    <div style={{ backgroundColor: "red", padding: "50px" }}>
+    <div style={{ backgroundColor: "#efefef", padding: "50px" }}>
       <InnerBlocks />
     </div>
   );
 }
 
 function saveComponent() {
-  return (
-    <div style={{ backgroundColor: "red", padding: "50px" }}>
-      <InnerBlocks.Content />
-    </div>
-  );
+  return <InnerBlocks.Content />;
 }
