@@ -22,3 +22,10 @@ Text Domain: blockville
   text-align: center;
   font-size: 1.65rem;
 }
+
+.perfectplan-block {
+  background-color: #efefef;
+  padding: 30px;
+  text-align: center;
+  font-size: 1.65rem;
+}
