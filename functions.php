@@ -43,7 +43,8 @@ add_action( 'after_setup_theme', 'blockville_setup' );
  * 
  * @since [version]
  */
-function blockville_register_block_patterns() {
+
+ function blockville_register_block_patterns() {
 	// Create the block pattern category for Blockville patterns.
 	register_block_pattern_category(
 		'blockville',
@@ -64,6 +65,56 @@ function blockville_register_block_patterns() {
 	);
 }
 add_action( 'init', 'blockville_register_block_patterns' );
+ 
+//events post type
+
+function blockvillePostTypes() {
+	register_post_type('event', array(
+		'supports' => array('title', 'editor', 'excerpt'),
+		'rewrite' => array('slug' => 'events'),
+		'has_archive' => true, 
+		'public' => true,
+		'show_in_rest' => true,
+		  'labels' => array(
+			'name' => 'Events',
+			'add_new_item' => 'Add New Event',
+			'edit_item' => 'Edit Event',
+			'all_items' => 'All Events',
+			'singular_name' => 'Event'
+		),
+		'menu_icon' => 'dashicons-calendar'
+	  ));
+}
+
+add_action('init', 'blockvillePostTypes');
+
+
+
+//Blocks
+class placeHolderBlock {
+	function __construct($name) {
+		$this->name = $name; 
+		add_action('init', [$this, 'onInit']);
+	}
+	//pass block attr and  nested content into the function
+	function ourRenderCallback($attributes, $content) {
+		ob_start();
+		require get_theme_file_path("/our-blocks/{$this->name}.php");
+		return ob_get_clean();
+	}
+
+	function onInit() {
+		wp_register_script($this->name, get_stylesheet_directory_uri() . "/our-blocks/{$this->name}.js", array(
+			'wp-blocks', 'wp-editor'
+		));
+		register_block_type("ourblocktheme/{$this->name}", array(
+			'editor_script' => $this->name,
+			'render_callback' => [$this, 'ourRenderCallback']
+		));
+	}
+}
+
+new placeHolderBlock('events');
 
 
 //making a class so I dont have to repeat initializing new blocks
