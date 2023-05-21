@@ -33,6 +33,7 @@ if ( ! function_exists( 'blockville_setup' ) ) {
 			add_theme_support( 'wp-block-styles' );
 			add_editor_style( 'style.css' );
 			add_editor_style( 'editor.css' );
+
 		}
 }
 add_action( 'after_setup_theme', 'blockville_setup' );
@@ -63,3 +64,22 @@ function blockville_register_block_patterns() {
 	);
 }
 add_action( 'init', 'blockville_register_block_patterns' );
+
+
+
+
+
+function perfectPlanBlock() {
+	wp_register_script('perfectPlanScript', get_stylesheet_directory_uri() . '/build/perfectplan.js', array(
+		'wp-blocks', 'wp-editor'
+	));
+
+	register_block_type('ourblocktheme/perfectplan', array(
+		'editor_script' => 'perfectPlanScript'
+	));
+}
+
+add_action('init', 'perfectPlanBlock');
+
+
+
