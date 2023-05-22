@@ -1,0 +1,75 @@
+/* Block CSS */
+
+.events-block {
+  background-color: #efefef;
+  padding: 30px;
+  text-align: center;
+  font-size: 1.65rem;
+}
+.flex {
+  display: flex;
+  justify-content: space-between; /* Adjust the spacing between the cards */
+}
+
+.card-container {
+  width: calc(50% - 10px); /* Adjust the width and spacing between the cards */
+  max-width: 420px;
+}
+
+img {
+  width: 100%;
+}
+.card {
+  border-radius: 30px;
+  background-color: #efefef;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px 5px hsla(0, 0%, 0%, 0.2);
+}
+.bottom {
+  padding: 20px 30px;
+}
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}
+p {
+  font-size: 13px;
+  margin: 0.6rem 0;
+  opacity: 0.7;
+}
+.date {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  align-items: center;
+  opacity: 0.6;
+}
+.time {
+  font-size: 13px;
+}
+
+h3 {
+  line-height: 30px;
+}
+
+.top {
+  background-color: red;
+  height: 240px;
+  background-image: url("/scenery.jpg");
+  background-position: center;
+  background-position: center;
+  border-radius: 30px;
+}
+
+@media (max-width: 768px) {
+  /* Event Block Break Points */
+  .flex {
+    flex-direction: column;
+  }
+
+  .card-container {
+    width: 100%;
+  }
+}

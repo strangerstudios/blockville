@@ -1,4 +1,4 @@
-wp.blocks.registerBlockType("ourblocktheme/events", {
+wp.blocks.registerBlockType("blockville/events", {
   title: "Events",
   edit: function () {
     return wp.element.createElement(
@@ -9,5 +9,6 @@ wp.blocks.registerBlockType("ourblocktheme/events", {
   },
   save: function () {
     return null;
+    //returns null because I want 100% php processesing
   },
 });

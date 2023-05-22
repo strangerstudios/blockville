@@ -20,6 +20,13 @@ function blockville_styles() {
 		array(),
 		wp_get_theme()->get( 'Version' )
 	);
+
+	wp_enqueue_style(
+        'blockville-block-styles',
+        get_stylesheet_directory_uri() . '/blocks/blocks.css',
+        array( 'blockville-style' ),
+        wp_get_theme()->get( 'Version' )
+    );
 }
 add_action( 'wp_enqueue_scripts', 'blockville_styles' );
 
@@ -66,12 +73,10 @@ add_action( 'after_setup_theme', 'blockville_setup' );
 }
 add_action( 'init', 'blockville_register_block_patterns' );
  
-//events post type
-
+// Events Post Type
 function blockvillePostTypes() {
 	register_post_type('event', array(
 		'supports' => array('title', 'editor', 'excerpt'),
-		'rewrite' => array('slug' => 'events'),
 		'has_archive' => true, 
 		'public' => true,
 		'show_in_rest' => true,
@@ -85,65 +90,45 @@ function blockvillePostTypes() {
 		'menu_icon' => 'dashicons-calendar'
 	  ));
 }
-
 add_action('init', 'blockvillePostTypes');
 
 
 
 //Blocks
-class placeHolderBlock {
-	function __construct($name) {
-		$this->name = $name; 
-		add_action('init', [$this, 'onInit']);
-	}
-	//pass block attr and  nested content into the function
-	function ourRenderCallback($attributes, $content) {
-		ob_start();
-		require get_theme_file_path("/our-blocks/{$this->name}.php");
-		return ob_get_clean();
-	}
+class RegisterNewBlock {
+    function __construct($name, $renderCallback = null) {
+        $this->name = $name; 
+        $this->renderCallback = $renderCallback;
+        add_action('init', [$this, 'onInit']);
+    }
 
-	function onInit() {
-		wp_register_script($this->name, get_stylesheet_directory_uri() . "/our-blocks/{$this->name}.js", array(
-			'wp-blocks', 'wp-editor'
-		));
-		register_block_type("ourblocktheme/{$this->name}", array(
-			'editor_script' => $this->name,
-			'render_callback' => [$this, 'ourRenderCallback']
-		));
-	}
+    function ourRenderCallback($attributes, $content) {
+        // Output buffering to capture the contents of the block template
+        ob_start();
+        require get_theme_file_path("/blocks/{$this->name}.php");
+        return ob_get_clean();
+    }
+
+    function onInit() {
+        $args = array('editor_script' => $this->name);
+
+        // Check if custom render callback is provided
+        if ($this->renderCallback) {
+            // Set the render callback for the block
+            $args['render_callback'] = [$this, 'ourRenderCallback'];
+        }
+
+        // Register the block script
+        wp_register_script($this->name, get_stylesheet_directory_uri() . "/build/{$this->name}.js", array(
+            'wp-blocks', 'wp-editor'
+        ));
+
+        // Register the block type
+        register_block_type("blockville/{$this->name}", $args);
+    }
 }
 
-new placeHolderBlock('events');
+// Create a new instance of RegisterNewBlock
+// Pass 'events' as the block name and true as the render callback argument
+new RegisterNewBlock('events', true);
 
-
-//making a class so I dont have to repeat initializing new blocks
-class JSXBlock {
-	function __construct($name, $renderCallback = null) {
-		$this->name = $name; 
-		//replace the name of the specfic block to whatever value was passed into class
-		$this->renderCallback = $renderCallback;
-
-		add_action('init', [$this, 'onInit']);
-	}
-	//pass block attr and  nested content into the function
-	function ourRenderCallback($attributes, $content) {
-		ob_start();
-		require get_theme_file_path("/our-blocks/{$this->name}.php");
-		return ob_get_clean();
-	}
-
-	function onInit() {
-		$ourArgs = array('editor_script' => $this->name);
-		if ($this->renderCallback) {
-			$ourArgs['render_callback'] = [$this, 'ourRenderCallback'];
-		}
-
-		wp_register_script($this->name, get_stylesheet_directory_uri() . "/build/{$this->name}.js", array(
-			'wp-blocks', 'wp-editor'
-		));
-		register_block_type("ourblocktheme/{$this->name}", $ourArgs);
-	}
-}
-
-new JSXBlock('perfectplan', true); 

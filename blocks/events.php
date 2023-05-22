@@ -1,4 +1,4 @@
-<div class="container">
+<div class="flex">
     <?php 
     $today = date('Ymd');
     $homePageEvents = new WP_Query(array(
@@ -20,7 +20,7 @@
     while($homePageEvents->have_posts()) {
         $homePageEvents->the_post(); ?>
 
-<div class="card-container">
+    <div class="card-container">
     <div class="card">
         <div class="grid">
             <div class="top"></div>
@@ -38,7 +38,7 @@
                     </p>
                 </div>
                 <div class="date">
-                    <div class="icon"></div>
+                    <div class="icon">Icon Goes Here</div>
                     <div class="time">
                         <span>
                             <?php $eventDate = new DateTime(get_field('event_date')); echo $eventDate->format('M') ?>
@@ -54,7 +54,7 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 
     <?php }
     ?>
