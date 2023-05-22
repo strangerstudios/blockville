@@ -23,9 +23,66 @@ Text Domain: blockville
   font-size: 1.65rem;
 }
 
-.perfectplan-block {
-  background-color: #efefef;
-  padding: 30px;
-  text-align: center;
-  font-size: 1.65rem;
+/* 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.card-container {
+  max-width: 350px;
+}
+img {
+  width: 100%;
+}
+.card {
+  border-radius: 30px;
+  background-color: #efefef;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px 5px hsla(0, 0%, 0%, 0.2);
+}
+.bottom {
+  padding: 20px 30px;
+}
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}
+p {
+  font-size: 13px;
+  margin: 0.6rem 0;
+  opacity: 0.7;
+}
+.date {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  align-items: center;
+  opacity: 0.6;
+}
+.time {
+  font-size: 13px;
+}
+
+h3 {
+  line-height: 30px;
+}
+
+.top {
+  background-color: red;
+  height: 240px;
+  background-image: url("/scenery.jpg");
+  background-position: center;
+  background-position: center;
+  border-radius: 30px;
+}
+ */
