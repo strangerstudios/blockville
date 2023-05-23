@@ -63,3 +63,42 @@ function blockville_register_block_patterns() {
 	);
 }
 add_action( 'init', 'blockville_register_block_patterns' );
+
+
+//Blocks
+class RegisterNewBlock {
+    function __construct($name, $renderCallback = null) {
+        $this->name = $name; 
+        $this->renderCallback = $renderCallback;
+        add_action('init', [$this, 'onInit']);
+    }
+
+    function ourRenderCallback($attributes, $content) {
+        // Output buffering to capture the contents of the block template
+        ob_start();
+        require get_theme_file_path("/blocks/{$this->name}.php");
+        return ob_get_clean();
+    }
+
+    function onInit() {
+        $args = array('editor_script' => $this->name);
+
+        // Check if custom render callback is provided
+        if ($this->renderCallback) {
+            // Set the render callback for the block
+            $args['render_callback'] = [$this, 'ourRenderCallback'];
+        }
+
+        // Register the block script
+        wp_register_script($this->name, get_stylesheet_directory_uri() . "/build/{$this->name}.js", array(
+            'wp-blocks', 'wp-editor'
+        ));
+
+        // Register the block type
+        register_block_type("blockville/{$this->name}", $args);
+    }
+}
+
+// Create a new instance of RegisterNewBlock
+// Pass 'events' as the block name and true as the render callback argument
+new RegisterNewBlock('events', true);
