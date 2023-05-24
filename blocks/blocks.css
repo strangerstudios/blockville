@@ -1,11 +1,5 @@
 /* Block CSS */
-
-.events-block {
-  background-color: #efefef;
-  padding: 30px;
-  text-align: center;
-  font-size: 1.65rem;
-}
+/* Events Block */
 .flex {
   display: flex;
   justify-content: space-between; /* Adjust the spacing between the cards */
@@ -13,54 +7,56 @@
 
 .card-container {
   width: calc(50% - 10px); /* Adjust the width and spacing between the cards */
-  max-width: 420px;
+  max-width: 550px;
 }
 
-img {
-  width: 100%;
-}
 .card {
+  box-shadow: 0px 0px 19px hsla(0, 0%, 0%, 0.2);
   border-radius: 30px;
-  background-color: #efefef;
   overflow: hidden;
-  box-shadow: 0px 0px 20px 5px hsla(0, 0%, 0%, 0.2);
 }
+.top {
+  background-position: center;
+  background-position: center;
+  height: 320px;
+  border-radius: 0px 0px 30px 30px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgb(155, 153, 153);
+}
+
 .bottom {
-  padding: 20px 30px;
+  padding: 0px 30px 30px 30px;
 }
-a {
+.title h3 {
+  font-size: 2.2rem;
+  color: #090e34;
+}
+.title h3 a {
   text-decoration: none;
   color: black;
-  font-size: 25px;
 }
-p {
-  font-size: 13px;
-  margin: 0.6rem 0;
-  opacity: 0.7;
+.title h3 a:hover {
+  opacity: 0.5;
+  transition: 300ms;
+}
+.description p {
+  font-size: 1.1rem;
+  opacity: 0.8;
 }
 .date {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   gap: 0.5rem;
-  align-items: center;
-  opacity: 0.6;
+  justify-content: space-between;
 }
-.time {
-  font-size: 13px;
+.date .right a {
+  color: black;
 }
-
-h3 {
-  line-height: 30px;
-}
-
-.top {
-  background-color: red;
-  height: 240px;
-  background-image: url("/scenery.jpg");
-  background-position: center;
-  background-position: center;
-  border-radius: 30px;
+.date .right a:hover {
+  opacity: 0.5;
+  transition: 300ms;
 }
 
 @media (max-width: 768px) {
@@ -71,5 +67,7 @@ h3 {
 
   .card-container {
     width: 100%;
+    align-self: center;
+    margin: 2rem;
   }
 }

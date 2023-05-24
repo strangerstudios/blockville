@@ -38,8 +38,8 @@
                     </p>
                 </div>
                 <div class="date">
-                    <div class="icon">Icon Goes Here</div>
-                    <div class="time">
+                   <div class="left">
+                   <div class="time">
                         <span>
                             <?php $eventDate = new DateTime(get_field('event_date')); echo $eventDate->format('M') ?>
                         </span>
@@ -50,6 +50,10 @@
                             <?php echo $eventDate->format('Y') ?>
                         </span>
                     </div>
+                   </div>
+                   <div class="right">
+                    <a href="#">Read More...</a>
+                   </div>
                 </div>
             </div>
         </div>
