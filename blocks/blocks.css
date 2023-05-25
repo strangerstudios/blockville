@@ -29,11 +29,11 @@
 .bottom {
   padding: 0px 30px 30px 30px;
 }
-.title h3 {
+.card-container .title h3 {
   font-size: 2.2rem;
   color: #090e34;
 }
-.title h3 a {
+.card-container .title h3 a {
   text-decoration: none;
   color: black;
 }
@@ -42,10 +42,12 @@
   transition: 300ms;
 }
 .description p {
-  font-size: 1.1rem;
-  opacity: 0.8;
+  font-size: 21px;
+  color: black;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
 }
-.date {
+.card-container .date {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
@@ -57,6 +59,64 @@
 .date .right a:hover {
   opacity: 0.5;
   transition: 300ms;
+}
+.card-container .time {
+  color: black;
+  opacity: 0.7;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+/* Blog Block */
+
+.blog-container h3,
+p {
+  margin: 0;
+}
+.blog-container {
+  max-width: 250px;
+}
+
+.date small {
+  letter-spacing: 2px;
+  color: black;
+  opacity: 0.7;
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.post-title h3 {
+  font-size: 24px;
+}
+.post-content p {
+  color: black;
+  opacity: 0.7;
+  line-height: 25px;
+  font-size: 18px;
+}
+.author img {
+  border-radius: 50%;
+  max-width: 35px;
+}
+.author {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 1.3rem;
+  font-size: 18px;
+}
+.author .right {
+  text-transform: uppercase;
+  color: black;
+  opacity: 0.7;
+  letter-spacing: 2px;
+}
+.post-content {
+  padding-bottom: 0.5rem;
 }
 
 @media (max-width: 768px) {
