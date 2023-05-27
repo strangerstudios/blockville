@@ -1,4 +1,4 @@
-<div class="flex">
+<div class="flex eventblock">
     <?php 
     $today = date('Ymd');
     $homePageEvents = new WP_Query(array(
@@ -41,10 +41,10 @@
                    <div class="left">
                    <div class="time">
                         <span>
-                            <?php $eventDate = new DateTime(get_field('event_date')); echo $eventDate->format('M') ?>
+                            <?php $eventDate = new DateTime(get_field('event_date')); echo $eventDate->format('d') ?>
                         </span>
                         <span>
-                            <?php echo $eventDate->format('d') ?>,
+                            <?php echo $eventDate->format('M') ?>
                         </span>
                         <span>
                             <?php echo $eventDate->format('Y') ?>

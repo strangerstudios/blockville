@@ -16,7 +16,8 @@ Text Domain: blockville
   padding: 0;
 }
 
-.events-block {
+.events-block,
+.latest-blog {
   background-color: #efefef;
   padding: 30px;
   text-align: center;
