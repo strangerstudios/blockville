@@ -10,15 +10,11 @@
     <div class="blog-post">
         <main class="post-content">
           <div class="date">
-            <small>
                 <span><?php the_time('d'); ?></span>
                 <span><?php the_time('M'); ?></span>
                 <span><?php the_time('Y'); ?></span>
-            </small>
         </div>
-          <div class="post-title">
-            <h3><?php the_title(); ?></h3>
-          </div>
+          <div class="post-title"><h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3></div>
           <div class="post-content">
             <p>
             <?php 

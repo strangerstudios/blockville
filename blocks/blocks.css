@@ -9,6 +9,7 @@
 }
 .blogblock {
   gap: 5rem;
+  justify-content: center;
 }
 
 .flex * {
@@ -68,7 +69,37 @@ a {
 }
 .card-container .date .time {
   opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
+
+/* Latest Blogs Block  */
+
+.blog-container {
+  width: 360px;
+}
+.blog-container .date {
+  opacity: 0.7;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.blog-container main {
+  padding-bottom: 5px;
+}
+.blog-container .post-content p {
+  opacity: 0.7;
+}
+.blog-container .author .right {
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.blog-container h3 a:hover {
+  opacity: 0.5;
+  transition: 300ms;
+}
+/* Remember to set up profile picture for this block! */
 
 @media (max-width: 768px) {
   /* Event Block Break Points */
