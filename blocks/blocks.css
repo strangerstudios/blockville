@@ -1,0 +1,78 @@
+/* Block CSS */
+/* Events Block */
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.flex * {
+  margin: 0; /* Reset */
+  padding: 0;
+}
+.card-container {
+  width: calc(50% - 10px); /* Adjust the width and spacing between the cards */
+  max-width: 510px;
+}
+.card {
+  box-shadow: 0px 0px 19px hsla(0, 0%, 0%, 0.2);
+  border-radius: 30px;
+  overflow: hidden;
+}
+.card-container .top {
+  background-position: center;
+  background-position: center;
+  height: 320px;
+  border-radius: 0px 0px 30px 30px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgb(155, 153, 153);
+}
+.card-container .bottom {
+  padding: 0 30px;
+}
+/* Elements */
+a {
+  text-decoration: none;
+  color: black;
+}
+.card-container .title h3 {
+  font-size: 2.2rem;
+  padding: 20px 0;
+}
+.card-container .title h3 a:hover {
+  opacity: 0.5;
+  transition: 300ms;
+}
+.card-container .description p {
+  font-size: 1.1rem;
+  opacity: 0.7;
+  padding-bottom: 20px;
+}
+.card-container .date {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.card-container .date .right a:hover {
+  opacity: 0.5;
+  transition: 300ms;
+}
+.card-container .date .time {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  /* Event Block Break Points */
+  .flex {
+    flex-direction: column;
+  }
+
+  .card-container {
+    width: 100%;
+    align-self: center;
+    margin: 2rem;
+  }
+}

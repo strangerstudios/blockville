@@ -20,6 +20,13 @@ function blockville_styles() {
 		array(),
 		wp_get_theme()->get( 'Version' )
 	);
+
+	wp_enqueue_style(
+        'blockville-block-styles',
+        get_stylesheet_directory_uri() . '/blocks/blocks.css',
+        array( 'blockville-style' ),
+        wp_get_theme()->get( 'Version' )
+    );
 }
 add_action( 'wp_enqueue_scripts', 'blockville_styles' );
 
@@ -33,6 +40,7 @@ if ( ! function_exists( 'blockville_setup' ) ) {
 			add_theme_support( 'wp-block-styles' );
 			add_editor_style( 'style.css' );
 			add_editor_style( 'editor.css' );
+
 		}
 }
 add_action( 'after_setup_theme', 'blockville_setup' );
@@ -42,7 +50,8 @@ add_action( 'after_setup_theme', 'blockville_setup' );
  * 
  * @since [version]
  */
-function blockville_register_block_patterns() {
+
+ function blockville_register_block_patterns() {
 	// Create the block pattern category for Blockville patterns.
 	register_block_pattern_category(
 		'blockville',
@@ -63,7 +72,25 @@ function blockville_register_block_patterns() {
 	);
 }
 add_action( 'init', 'blockville_register_block_patterns' );
-
+ 
+// Events Post Type
+function blockvillePostTypes() {
+	register_post_type('event', array(
+		'supports' => array('title', 'editor', 'excerpt'),
+		'has_archive' => true, 
+		'public' => true,
+		'show_in_rest' => true,
+		  'labels' => array(
+			'name' => 'Events',
+			'add_new_item' => 'Add New Event',
+			'edit_item' => 'Edit Event',
+			'all_items' => 'All Events',
+			'singular_name' => 'Event'
+		),
+		'menu_icon' => 'dashicons-calendar'
+	  ));
+}
+add_action('init', 'blockvillePostTypes');
 
 //Blocks
 class RegisterNewBlock {
