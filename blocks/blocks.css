@@ -1,21 +1,24 @@
 /* Block CSS */
 /* Events Block */
+
 .flex {
   display: flex;
-  justify-content: space-between; /* Adjust the spacing between the cards */
+  justify-content: space-between;
 }
-
+.flex * {
+  margin: 0; /* Reset */
+  padding: 0;
+}
 .card-container {
   width: calc(50% - 10px); /* Adjust the width and spacing between the cards */
-  max-width: 550px;
+  max-width: 510px;
 }
-
 .card {
   box-shadow: 0px 0px 19px hsla(0, 0%, 0%, 0.2);
   border-radius: 30px;
   overflow: hidden;
 }
-.top {
+.card-container .top {
   background-position: center;
   background-position: center;
   height: 320px;
@@ -25,38 +28,40 @@
   background-repeat: no-repeat;
   background-color: rgb(155, 153, 153);
 }
-
-.bottom {
-  padding: 0px 30px 30px 30px;
+.card-container .bottom {
+  padding: 0 30px;
 }
-.title h3 {
-  font-size: 2.2rem;
-  color: #090e34;
-}
-.title h3 a {
+/* Elements */
+a {
   text-decoration: none;
   color: black;
 }
-.title h3 a:hover {
+.card-container .title h3 {
+  font-size: 2.2rem;
+  padding: 20px 0;
+}
+.card-container .title h3 a:hover {
   opacity: 0.5;
   transition: 300ms;
 }
-.description p {
+.card-container .description p {
   font-size: 1.1rem;
-  opacity: 0.8;
+  opacity: 0.7;
+  padding-bottom: 20px;
 }
-.date {
+.card-container .date {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
   justify-content: space-between;
+  padding-bottom: 20px;
 }
-.date .right a {
-  color: black;
-}
-.date .right a:hover {
+.card-container .date .right a:hover {
   opacity: 0.5;
   transition: 300ms;
+}
+.card-container .date .time {
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
