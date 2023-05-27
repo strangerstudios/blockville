@@ -1,4 +1,4 @@
-<div class="flex">
+<div class="flex eventblock">
     <?php 
     $today = date('Ymd');
     $homePageEvents = new WP_Query(array(

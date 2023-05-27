@@ -3,8 +3,14 @@
 
 .flex {
   display: flex;
+}
+.eventblock {
   justify-content: space-between;
 }
+.blogblock {
+  gap: 5rem;
+}
+
 .flex * {
   margin: 0; /* Reset */
   padding: 0;
