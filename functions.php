@@ -92,8 +92,6 @@ function blockvillePostTypes() {
 }
 add_action('init', 'blockvillePostTypes');
 
-
-
 //Blocks
 class RegisterNewBlock {
     function __construct($name, $renderCallback = null) {
@@ -131,4 +129,3 @@ class RegisterNewBlock {
 // Create a new instance of RegisterNewBlock
 // Pass 'events' as the block name and true as the render callback argument
 new RegisterNewBlock('events', true);
-
