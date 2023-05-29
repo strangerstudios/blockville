@@ -1,20 +1,15 @@
 /* Block CSS */
-/* Events Block */
 
 .flex {
   display: flex;
 }
-.eventblock {
-  justify-content: space-between;
-}
-.blogblock {
-  gap: 5rem;
-  justify-content: center;
-}
-
 .flex * {
   margin: 0; /* Reset */
   padding: 0;
+}
+/* Events Block */
+.eventblock {
+  justify-content: space-between;
 }
 .card-container {
   width: calc(50% - 10px); /* Adjust the width and spacing between the cards */
@@ -75,8 +70,10 @@ a {
 
 /* Latest Blogs Block  */
 
-.blog-container {
-  width: 360px;
+.blogblock {
+  gap: 2rem;
+  justify-content: space-between;
+  width: 100%;
 }
 .blog-container .date {
   opacity: 0.7;
