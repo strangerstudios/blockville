@@ -21,19 +21,16 @@
   overflow: hidden;
 }
 .card-container .top {
-  background-position: center;
-  background-position: center;
   height: 320px;
   border-radius: 0px 0px 30px 30px;
   background-position: center;
-  background-size: cover;
+  background-size: auto;
   background-repeat: no-repeat;
   background-color: rgb(155, 153, 153);
 }
 .card-container .bottom {
   padding: 0 30px;
 }
-/* Elements */
 a {
   text-decoration: none;
   color: black;

@@ -18,12 +18,13 @@
     ));
 
     while($homePageEvents->have_posts()) {
-        $homePageEvents->the_post(); ?>
+        $homePageEvents->the_post(); 
+        $photo = get_field('event_photo'); ?>
 
     <div class="card-container">
     <div class="card">
         <div class="grid">
-            <div class="top"></div>
+            <div class="top" style="background-image: url('<?php echo $photo['url'] ?>')"></div>
             <div class="bottom">
                 <div class="title"><h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3></div>
                 <div class="description">
