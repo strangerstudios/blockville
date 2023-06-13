@@ -129,5 +129,3 @@ class RegisterNewBlock {
 // Create a new instance of RegisterNewBlock
 // Pass 'events' as the block name and true as the render callback argument
 new RegisterNewBlock('events', true);
-new RegisterNewBlock('latest-blog', true);
-
