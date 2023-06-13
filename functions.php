@@ -27,6 +27,19 @@ function blockville_styles() {
         array( 'blockville-style' ),
         wp_get_theme()->get( 'Version' )
     );
+
+	wp_enqueue_style(
+		'font-awesome', 
+		get_template_directory_uri() . '/assets/font-awesome/css/all.css'
+	);
+
+	wp_enqueue_script(
+		'font-awesome-kit', 
+		'https://kit.fontawesome.com/effe0ae4aa.js', 
+		array(), 
+		wp_get_theme()->get( 'Version' )
+		, true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'blockville_styles' );
 
@@ -73,27 +86,6 @@ add_action( 'after_setup_theme', 'blockville_setup' );
 }
 add_action( 'init', 'blockville_register_block_patterns' );
  
-// Events Post Type
-function blockvillePostTypes() {
-	register_post_type('event', array(
-		'supports' => array('title', 'editor', 'excerpt'),
-		'has_archive' => true, 
-		'public' => true,
-		'show_in_rest' => true,
-		  'labels' => array(
-			'name' => 'Events',
-			'add_new_item' => 'Add New Event',
-			'edit_item' => 'Edit Event',
-			'all_items' => 'All Events',
-			'singular_name' => 'Event'
-		),
-		'menu_icon' => 'dashicons-calendar'
-	  ));
-}
-add_action('init', 'blockvillePostTypes');
-
-
-
 //Blocks
 class RegisterNewBlock {
     function __construct($name, $renderCallback = null) {
@@ -129,6 +121,3 @@ class RegisterNewBlock {
 }
 
 // Create a new instance of RegisterNewBlock
-// Pass 'events' as the block name and true as the render callback argument
-new RegisterNewBlock('events', true);
-

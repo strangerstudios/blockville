@@ -11,14 +11,6 @@ License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 Text Domain: blockville
 */
 
-/* tempoary */
 .wp-block-site-title {
   padding: 0;
-}
-
-.events-block {
-  background-color: #efefef;
-  padding: 30px;
-  text-align: center;
-  font-size: 1.65rem;
 }
