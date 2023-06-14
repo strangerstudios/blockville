@@ -71,6 +71,11 @@
           "slug": "octonary",
           "color": "#010922",
           "name": "Octonary"
+        },
+        {
+          "slug": "soft-grey",
+          "color": "#D7D7D7",
+          "name": "Soft Grey"
         }
       ],
       "gradients": [
