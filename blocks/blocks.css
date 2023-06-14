@@ -1,0 +1,16 @@
+/* Block CSS */
+
+.flex {
+  display: flex;
+}
+.flex * {
+  margin: 0; /* Reset */
+  padding: 0;
+}
+
+/* Break Points */
+@media (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+  }
+}

@@ -20,6 +20,26 @@ function blockville_styles() {
 		array(),
 		wp_get_theme()->get( 'Version' )
 	);
+
+	wp_enqueue_style(
+        'blockville-block-styles',
+        get_stylesheet_directory_uri() . '/blocks/blocks.css',
+        array( 'blockville-style' ),
+        wp_get_theme()->get( 'Version' )
+    );
+
+	wp_enqueue_style(
+		'font-awesome', 
+		get_template_directory_uri() . '/assets/font-awesome/css/all.css'
+	);
+
+	wp_enqueue_script(
+		'font-awesome-kit', 
+		'https://kit.fontawesome.com/effe0ae4aa.js', 
+		array(), 
+		wp_get_theme()->get( 'Version' )
+		, true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'blockville_styles' );
 
@@ -33,6 +53,7 @@ if ( ! function_exists( 'blockville_setup' ) ) {
 			add_theme_support( 'wp-block-styles' );
 			add_editor_style( 'style.css' );
 			add_editor_style( 'editor.css' );
+
 		}
 }
 add_action( 'after_setup_theme', 'blockville_setup' );
@@ -42,7 +63,8 @@ add_action( 'after_setup_theme', 'blockville_setup' );
  * 
  * @since [version]
  */
-function blockville_register_block_patterns() {
+
+ function blockville_register_block_patterns() {
 	// Create the block pattern category for Blockville patterns.
 	register_block_pattern_category(
 		'blockville',
@@ -63,3 +85,44 @@ function blockville_register_block_patterns() {
 	);
 }
 add_action( 'init', 'blockville_register_block_patterns' );
+ 
+/**
+ * Register block styles.
+ * 
+ * @since [version]
+ */
+
+class RegisterNewBlock {
+    function __construct($name, $renderCallback = null) {
+        $this->name = $name; 
+        $this->renderCallback = $renderCallback;
+        add_action('init', [$this, 'onInit']);
+    }
+
+    function ourRenderCallback($attributes, $content) {
+        // Output buffering to capture the contents of the block template
+        ob_start();
+        require get_theme_file_path("/blocks/{$this->name}.php");
+        return ob_get_clean();
+    }
+
+    function onInit() {
+        $args = array('editor_script' => $this->name);
+
+        // Check if custom render callback is provided
+        if ($this->renderCallback) {
+            // Set the render callback for the block
+            $args['render_callback'] = [$this, 'ourRenderCallback'];
+        }
+
+        // Register the block script
+        wp_register_script($this->name, get_stylesheet_directory_uri() . "/build/{$this->name}.js", array(
+            'wp-blocks', 'wp-editor'
+        ));
+
+        // Register the block type
+        register_block_type("blockville/{$this->name}", $args);
+    }
+}
+
+// Create a new instance of RegisterNewBlock
