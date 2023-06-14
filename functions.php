@@ -86,7 +86,12 @@ add_action( 'after_setup_theme', 'blockville_setup' );
 }
 add_action( 'init', 'blockville_register_block_patterns' );
  
-//Blocks
+/**
+ * Register block styles.
+ * 
+ * @since [version]
+ */
+
 class RegisterNewBlock {
     function __construct($name, $renderCallback = null) {
         $this->name = $name; 
